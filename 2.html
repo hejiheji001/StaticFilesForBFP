@@ -1,0 +1,725 @@
+<html>
+	<head>
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+	</head>
+</html>
+qwertqwert
+<div id="fire_board" class="float_window">
+	<div id="MisakaMoe">
+		<div id="misakaToggle" class="misakaEyes" onclick="toggle();"></div>
+		<div id="misakaClose" class="misakaEyes" onclick="$('#firelist').slideUp(); $('#fire_board').animate({width:'45px'}).fadeOut();$('#MisakaMoe').css('left', '0px');"></div>
+		<div id="misakaBody"></div>
+		<div id="misakaCover1" ></div>
+		<div id="misakaCover2" ></div>
+		<div id="misakaMouth">﹀</div>
+	</div>
+<!-- 	<div class="f_close" onclick="$('#firelist').slideUp(); $('#fire_board').animate({width:'45px'}).fadeOut();">
+	</div>
+	<div id="mouth" class="f_mouth" onclick="bi();">
+	</div> -->
+	<div id="count" class="f_count">
+	</div>
+	<div id="float_window" style="padding: 5px;">
+		<div id="fireaway" class="latestVersion ui-icon" onclick="toggle();" style="display:none">
+		</div>
+		<ul id="firelist" style="display: none; line-height: 15px;">
+			<span id="greetings" style="display: none; ">
+				<button class="smallButton" onclick="$('#greetings').css('display','none');$('#firelist li').fadeIn();$('.letv').slideUp();">Return
+				</button>
+				<br>Hi there! Greetings from the author of Bilibili Fixer(BFP).
+				<br>As a Japanese animation buff, I am so glad to know that my effort can help you.
+				<br>If anyone of you have any questions, please don't hesitate to contact me at
+				<a href="http://userscripts.org/scripts/reviews/165424" target="_blank">here.</a>
+				<br>Add your review and I will reply you asap.
+				<br>I will also add the English instructions to my
+				<a href="http://userscripts.org/scripts/show/165424" target="_blank">homepage.</a>
+				<br>If you like this script, please tell your friends. Have fun and enjoy yourself.
+			</span>
+			<span id="settings" style="display: none; ">
+				<ul>
+					<li>
+						<button class="smallButton" onclick="$('#settings').css('display','none');$('#firelist li').fadeIn();$('.letv').slideUp();$('#moreScripts').slideUp();">Return</button>
+					</li>
+					<li>
+						<span id="needRefresh" style="display:none" class="needRefresh">刷新或者开启新页面以应用设置</span>
+					</li>
+					<li>
+						<label class="funcText" for="isQSD">
+							<input id="isQSD" onclick="toggleFunc(this,$('.quickScroll').css('display'));" type="checkbox">
+						</label>
+					</li>
+					<!-- 					<li>
+						<label class="funcText" for="bfp_AjaxType_GM">
+							<input style="" name="bfp_AjaxType" id="bfp_AjaxType_GM" onclick="toggleFunc(this);" type="radio">
+						</label>
+					</li> -->
+					<li>
+						<label class="funcText" for="isToPlayer">
+							<input id="isToPlayer" onclick="toggleFunc(this);" type="checkbox">
+						</label>
+					</li>
+					<li>
+						<label class="funcText" for="noToPlayer">
+							<input id="noToPlayer" onclick="toggleFunc(this);" type="checkbox">
+						</label>
+					</li>
+					<li>
+						<label class="funcText" for="isFollowMaster">
+							<input id="isFollowMaster" onclick="toggleFunc(this);" type="checkbox">
+						</label>
+					</li>
+					<li>右下角通知
+						<select name="noticeAdjust" id="noticeAdjust" onchange="toggleFunc(this, this.value);">
+							<option value="1">完全关闭</option>
+							<option value="2">仅重要通知</option>
+							<option value="3">显示所有</option>
+						</select>
+					</li>
+					<li>SG-追番信息
+						<select name="SGInfo" id="SGInfo" onchange="toggleFunc(this, this.value);">
+							<option value="1">开启</option>
+							<option value="2">关闭</option>
+							<option value="3">重置</option>
+						</select>
+					</li>
+					<!-- 				<li><label class="funcText" for="bfp_AjaxType_FA"><input name="bfp_AjaxType" id="bfp_AjaxType_FA" onclick="toggleFunc(this);" type="radio"></label></li> -->
+					<!-- 				<li><label class="funcText" for="isYQL"><input id="isYQL" onclick="toggleFunc(this);" type="checkbox"></label></li> -->
+					<!-- 				<li><label class="funcText" for="isLog"><input id="isLog" onclick="toggleFunc(this);" type="checkbox"></label></li> -->
+					<li>
+						<label class="funcText" for="autoSelect">
+							<input id="autoSelect" onclick="toggleFunc(this);" type="checkbox">
+						</label>
+					</li>
+
+					<li>
+						<label class="funcText" for="isAddToBody">
+							<input id="isAddToBody" onclick="toggleFunc(this);" type="checkbox">
+						</label>
+					</li>
+					<li>
+						<label class="funcText" for="fontSelector">
+							<input placeholder="手动输入新字体" onchange="toggleFunc(this,this.value);" id="fontSelector" type="text">
+						</label>
+					</li>
+					<li>
+						<label class="funcText" for="currentFontSize">
+							<input id="currentFontSize" disabled="" type="text">
+						</label>
+					</li>
+					<li>
+						<label class="funcText" for="fontSizer">
+							<input id="fontSizer" value="12" max="24" min="12" onchange="toggleFunc(this,this.value);" type="range">
+						</label>
+					</li>
+				</ul>
+			</span>
+			<span id="secretGarden" style="display: none; ">
+				<button class="smallButton" onclick="$('#secretGarden').css('display','none');$('#firelist li').fadeIn();$('.letv').slideUp();$('#moreScripts').slideUp();">Return</button>
+				<p>极黑的黑科技里区 感谢<a href="http://tieba.baidu.com/p/3058323351" target="_blank">@Coldplay丶坑</a>
+					<p style="color:red"><input type="checkbox" onchange="this.checked==true?$('#secretVideos').fadeIn():$('#secretVideos').fadeOut()">我保证不会大肆宣扬里区</p>
+				</p>
+				<ul id="secretVideos" style="display:none">
+					<li class="secretVideosController" next="s_1" onclick="slideUpOthers(this,'.secretVideoList');$('#s_1').slideToggle();">
+						刀剑神域1
+					</li>
+					<li id="s_1" class="secretVideoList">
+						<p><a href='/video/av1' id='s_1-1' target="_blank" >第1集</a></p>
+						<p><a href='/video/av1' id='s_1-2' target="_blank" >第2集</a></p>
+						<p><a href='/video/av1' id='s_1-3' target="_blank" >第3集</a></p>
+						<p><a href='/video/av1' id='s_1-4' target="_blank" >第4集</a></p>
+						<p><a href='/video/av1' id='s_1-5' target="_blank" >第5集</a></p>
+						<p><a href='/video/av1' id='s_1-6' target="_blank" >第6集</a></p>
+						<p><a href='/video/av1' id='s_1-7' target="_blank" >第7集</a></p>
+						<p><a href='/video/av1' id='s_1-8' target="_blank" >第8集</a></p>
+						<p><a href='/video/av1' id='s_1-9' target="_blank" >第9集</a></p>
+						<p><a href='/video/av1' id='s_1-10' target="_blank" >第10集</a></p>
+						<p><a href='/video/av1' id='s_1-11' target="_blank" >第11集</a></p>
+						<p><a href='/video/av1' id='s_1-12' target="_blank" >第12集</a></p>
+						<p><a href='/video/av1' id='s_1-13' target="_blank" >第13集</a></p>
+						<p><a href='/video/av1' id='s_1-14' target="_blank" >第14集</a></p>
+						<p><a href='/video/av1' id='s_1-15' target="_blank" >第15集</a></p>
+						<p><a href='/video/av1' id='s_1-16' target="_blank" >第16集</a></p>
+						<p><a href='/video/av1' id='s_1-17' target="_blank" >第17集</a></p>
+						<p><a href='/video/av1' id='s_1-18' target="_blank" >第18集</a></p>
+						<p><a href='/video/av1' id='s_1-19' target="_blank" >第19集</a></p>
+						<p><a href='/video/av1' id='s_1-20' target="_blank" >第20集</a></p>
+						<p><a href='/video/av1' id='s_1-21' target="_blank" >第21集</a></p>
+						<p><a href='/video/av1' id='s_1-22' target="_blank" >第22集</a></p>
+						<p><a href='/video/av1' id='s_1-23' target="_blank" >第23集</a></p>
+						<p><a href='/video/av1' id='s_1-24' target="_blank" >第24集</a></p>
+						<p><a href='/video/av1' id='s_1-25' target="_blank" >第25集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_2" onclick="slideUpOthers(this,'.secretVideoList');$('#s_2').slideToggle();">
+						妖精的旋律 已解禁
+					</li>
+					<li id="s_2" class="secretVideoList">
+						<p><a href='/video/av1' id='s_2-1' target='_blank' >第1集</a></p>
+						<p><a href='/video/av1' id='s_2-2' target='_blank' >第2集</a></p>
+						<p><a href='/video/av1' id='s_2-3' target='_blank' >第3集</a></p>
+						<p><a href='/video/av1' id='s_2-4' target='_blank' >第4集</a></p>
+						<p><a href='/video/av1' id='s_2-5' target='_blank' >第5集</a></p>
+						<p><a href='/video/av1' id='s_2-6' target='_blank' >第6集</a></p>
+						<p><a href='/video/av1' id='s_2-7' target='_blank' >第7集</a></p>
+						<p><a href='/video/av1' id='s_2-8' target='_blank' >第8集</a></p>
+						<p><a href='/video/av1' id='s_2-9' target='_blank' >第9集</a></p>
+						<p><a href='/video/av1' id='s_2-10' target='_blank' >第10集</a></p>
+						<p><a href='/video/av1' id='s_2-11' target='_blank' >第11集</a></p>
+						<p><a href='/video/av1' id='s_2-12' target='_blank' >第12集</a></p>
+						<p><a href='/video/av1' id='s_2-13' target='_blank' >第13集</a></p>
+						<p><a href='/video/av1' id='s_2-14' target='_blank' >第14集</a></p>
+						<p><a href='/video/av1' id='s_2-15' target='_blank' >第15集</a></p>
+					</li>
+ 					<li class="secretVideosController" next="s_3" onclick="slideUpOthers(this,'.secretVideoList');$('#s_3').slideToggle();">
+						妄想学生会1 已解禁
+					</li>
+					<li id="s_3" class="secretVideoList">
+						<p><a href='/video/av1' id='s_3-1' target='_blank'>第1集</a></p>
+						<p><a href='/video/av1' id='s_3-2' target='_blank'>第2集</a></p>
+						<p><a href='/video/av1' id='s_3-3' target='_blank'>第3集</a></p>
+						<p><a href='/video/av1' id='s_3-4' target='_blank'>第4集</a></p>
+						<p><a href='/video/av1' id='s_3-5' target='_blank'>第5集</a></p>
+						<p><a href='/video/av1' id='s_3-6' target='_blank'>第6集</a></p>
+						<p><a href='/video/av1' id='s_3-7' target='_blank'>第7集</a></p>
+						<p><a href='/video/av1' id='s_3-8' target='_blank'>第8集</a></p>
+						<p><a href='/video/av1' id='s_3-9' target='_blank'>第9集</a></p>
+						<p><a href='/video/av1' id='s_3-10' target='_blank'>第10集</a></p>
+						<p><a href='/video/av1' id='s_3-11' target='_blank'>第11集</a></p>
+						<p><a href='/video/av1' id='s_3-12' target='_blank'>第12集</a></p>
+						<p><a href='/video/av1' id='s_3-13' target='_blank'>第13集</a></p>
+						<p><a href='/video/av1' id='s_3-OAD1' target='_blank'> OAD第1集</a></p>
+						<p><a href='/video/av1' id='s_3-OAD2' target='_blank'> OAD第2集</a></p>
+						<p><a href='/video/av1' id='s_3-OAD3' target='_blank'> OAD第3集</a></p>
+						<p><a href='/video/av1' id='s_3-OAD4' target='_blank'> OAD第4集</a></p>
+						<p><a href='/video/av1' id='s_3-OAD5' target='_blank'> OAD第5集</a></p>
+						<p><a href='/video/av1' id='s_3-OAD6' target='_blank'> OAD第6集</a></p>
+						<p><a href='/video/av1' id='s_3-OAD7' target='_blank'> OAD第7集</a></p>
+						<p><a href='/video/av1' id='s_3-OAD8' target='_blank'> OAD第8集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_4" onclick="slideUpOthers(this,'.secretVideoList');$('#s_4').slideToggle();">
+						学园默示录 已解禁
+					</li>
+					<li id="s_4" class="secretVideoList">
+						<p><a href='/video/av1' id='s_4-1' target='_blank'>第1集</a></p>
+						<p><a href='/video/av1' id='s_4-2' target='_blank'>第2集</a></p>
+						<p><a href='/video/av1' id='s_4-3' target='_blank'>第3集</a></p>
+						<p><a href='/video/av1' id='s_4-4' target='_blank'>第4集</a></p>
+						<p><a href='/video/av1' id='s_4-5' target='_blank'>第5集</a></p>
+						<p><a href='/video/av1' id='s_4-6' target='_blank'>第6集</a></p>
+						<p><a href='/video/av1' id='s_4-7' target='_blank'>第7集</a></p>
+						<p><a href='/video/av1' id='s_4-8' target='_blank'>第8集</a></p>
+						<p><a href='/video/av1' id='s_4-9' target='_blank'>第9集</a></p>
+						<p><a href='/video/av1' id='s_4-10' target='_blank'>第10集</a></p>
+						<p><a href='/video/av1' id='s_4-11' target='_blank'>第11集</a></p>
+						<p><a href='/video/av1' id='s_4-12' target='_blank'>第12集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_5" onclick="slideUpOthers(this,'.secretVideoList');$('#s_5').slideToggle();">
+						Another 已解禁
+					</li>
+					<li id="s_5" class="secretVideoList">
+						<p><a href='/video/av1' id='s_5-1' target='_blank'>第1集</a></p>
+						<p><a href='/video/av1' id='s_5-2' target='_blank'>第2集</a></p>
+						<p><a href='/video/av1' id='s_5-3' target='_blank'>第3集</a></p>
+						<p><a href='/video/av1' id='s_5-4' target='_blank'>第4集</a></p>
+						<p><a href='/video/av1' id='s_5-5' target='_blank'>第5集</a></p>
+						<p><a href='/video/av1' id='s_5-6' target='_blank'>第6集</a></p>
+						<p><a href='/video/av1' id='s_5-7' target='_blank'>第7集</a></p>
+						<p><a href='/video/av1' id='s_5-8' target='_blank'>第8集</a></p>
+						<p><a href='/video/av1' id='s_5-9' target='_blank'>第9集</a></p>
+						<p><a href='/video/av1' id='s_5-10' target='_blank'>第10集</a></p>
+						<p><a href='/video/av1' id='s_5-11' target='_blank'>第11集</a></p>
+						<p><a href='/video/av1' id='s_5-12' target='_blank'>第12集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_6" onclick="slideUpOthers(this,'.secretVideoList');$('#s_6').slideToggle();">
+						恶魔高校DXD 第二季
+					</li>
+					<li id="s_6" class="secretVideoList">
+						<p><a href='/video/av1' id='s_6-1' target='_blank'>第1集</a></p>
+						<p><a href='/video/av1' id='s_6-2' target='_blank'>第2集</a></p>
+						<p><a href='/video/av1' id='s_6-3' target='_blank'>第3集</a></p>
+						<p><a href='/video/av1' id='s_6-4' target='_blank'>第4集</a></p>
+						<p><a href='/video/av1' id='s_6-5' target='_blank'>第5集</a></p>
+						<p><a href='/video/av1' id='s_6-6' target='_blank'>第6集</a></p>
+						<p><a href='/video/av1' id='s_6-7' target='_blank'>第7集</a></p>
+						<p><a href='/video/av1' id='s_6-8' target='_blank'>第8集</a></p>
+						<p><a href='/video/av1' id='s_6-9' target='_blank'>第9集</a></p>
+						<p><a href='/video/av1' id='s_6-10' target='_blank'>第10集</a></p>
+						<p><a href='/video/av1' id='s_6-11' target='_blank'>第11集</a></p>
+						<p><a href='/video/av1' id='s_6-12' target='_blank'>第12集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_7" onclick="slideUpOthers(this,'.secretVideoList');$('#s_7').slideToggle();">
+						寒蝉鸣泣之时 已解禁
+					</li>
+					<li id="s_7" class="secretVideoList">
+						<p><a href='/video/av1' id='s_7-1' target='_blank'>第1集</a></p>
+						<p><a href='/video/av1' id='s_7-2' target='_blank'>第2集</a></p>
+						<p><a href='/video/av1' id='s_7-3' target='_blank'>第3集</a></p>
+						<p><a href='/video/av1' id='s_7-4' target='_blank'>第4集</a></p>
+						<p><a href='/video/av1' id='s_7-5' target='_blank'>第5集</a></p>
+						<p><a href='/video/av1' id='s_7-6' target='_blank'>第6集</a></p>
+						<p><a href='/video/av1' id='s_7-7' target='_blank'>第7集</a></p>
+						<p><a href='/video/av1' id='s_7-8' target='_blank'>第8集</a></p>
+						<p><a href='/video/av1' id='s_7-9' target='_blank'>第9集</a></p>
+						<p><a href='/video/av1' id='s_7-10' target='_blank'>第10集</a></p>
+						<p><a href='/video/av1' id='s_7-11' target='_blank'>第11集</a></p>
+						<p><a href='/video/av1' id='s_7-12' target='_blank'>第12集</a></p>
+						<p><a href='/video/av1' id='s_7-13' target='_blank'>第13集</a></p>
+						<p><a href='/video/av1' id='s_7-14' target='_blank'>第14集</a></p>
+						<p><a href='/video/av1' id='s_7-15' target='_blank'>第15集</a></p>
+						<p><a href='/video/av1' id='s_7-16' target='_blank'>第16集</a></p>
+						<p><a href='/video/av1' id='s_7-17' target='_blank'>第17集</a></p>
+						<p><a href='/video/av1' id='s_7-18' target='_blank'>第18集</a></p>
+						<p><a href='/video/av1' id='s_7-19' target='_blank'>第19集</a></p>
+						<p><a href='/video/av1' id='s_7-20' target='_blank'>第20集</a></p>
+						<p><a href='/video/av1' id='s_7-21' target='_blank'>第21集</a></p>
+						<p><a href='/video/av1' id='s_7-22' target='_blank'>第22集</a></p>
+						<p><a href='/video/av1' id='s_7-23' target='_blank'>第23集</a></p>
+						<p><a href='/video/av1' id='s_7-24' target='_blank'>第24集</a></p>
+						<p><a href='/video/av1' id='s_7-25' target='_blank'>第25集</a></p>
+						<p><a href='/video/av1' id='s_7-26' target='_blank'>第26集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_8" onclick="slideUpOthers(this,'.secretVideoList');$('#s_8').slideToggle();">
+						寒蝉鸣泣之时 解 已解禁
+					</li>
+					<li id="s_8" class="secretVideoList">
+						<p><a href='/video/av1' id='s_8-1' target='_blank'>第1集</a></p>
+						<p><a href='/video/av1' id='s_8-2' target='_blank'>第2集</a></p>
+						<p><a href='/video/av1' id='s_8-3' target='_blank'>第3集</a></p>
+						<p><a href='/video/av1' id='s_8-4' target='_blank'>第4集</a></p>
+						<p><a href='/video/av1' id='s_8-5' target='_blank'>第5集</a></p>
+						<p><a href='/video/av1' id='s_8-6' target='_blank'>第6集</a></p>
+						<p><a href='/video/av1' id='s_8-7' target='_blank'>第7集</a></p>
+						<p><a href='/video/av1' id='s_8-8' target='_blank'>第8集</a></p>
+						<p><a href='/video/av1' id='s_8-9' target='_blank'>第9集</a></p>
+						<p><a href='/video/av1' id='s_8-10' target='_blank'>第10集</a></p>
+						<p><a href='/video/av1' id='s_8-11' target='_blank'>第11集</a></p>
+						<p><a href='/video/av1' id='s_8-12' target='_blank'>第12集</a></p>
+						<p><a href='/video/av1' id='s_8-13' target='_blank'>第13集</a></p>
+						<p><a href='/video/av1' id='s_8-14' target='_blank'>第14集</a></p>
+						<p><a href='/video/av1' id='s_8-15' target='_blank'>第15集</a></p>
+						<p><a href='/video/av1' id='s_8-16' target='_blank'>第16集</a></p>
+						<p><a href='/video/av1' id='s_8-17' target='_blank'>第17集</a></p>
+						<p><a href='/video/av1' id='s_8-18' target='_blank'>第18集</a></p>
+						<p><a href='/video/av1' id='s_8-19' target='_blank'>第19集</a></p>
+						<p><a href='/video/av1' id='s_8-20' target='_blank'>第20集</a></p>
+						<p><a href='/video/av1' id='s_8-22' target='_blank'>第22集</a></p>
+						<p><a href='/video/av1' id='s_8-22' target='_blank'>第22集</a></p>
+						<p><a href='/video/av1' id='s_8-23' target='_blank'>第23集</a></p>
+						<p><a href='/video/av1' id='s_8-24' target='_blank'>第24集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_9" onclick="slideUpOthers(this,'.secretVideoList');$('#s_9').slideToggle();">
+						To Love 1 已解禁
+					</li>
+					<li id="s_9" class="secretVideoList">
+						<p><a href='/video/av1' id='s_9-1' target='_blank'>第1集</a></p>
+						<p><a href='/video/av1' id='s_9-2' target='_blank'>第2集</a></p>
+						<p><a href='/video/av1' id='s_9-3' target='_blank'>第3集</a></p>
+						<p><a href='/video/av1' id='s_9-4' target='_blank'>第4集</a></p>
+						<p><a href='/video/av1' id='s_9-5' target='_blank'>第5集</a></p>
+						<p><a href='/video/av1' id='s_9-6' target='_blank'>第6集</a></p>
+						<p><a href='/video/av1' id='s_9-7' target='_blank'>第7集</a></p>
+						<p><a href='/video/av1' id='s_9-8' target='_blank'>第8集</a></p>
+						<p><a href='/video/av1' id='s_9-9' target='_blank'>第9集</a></p>
+						<p><a href='/video/av1' id='s_9-10' target='_blank'>第10集</a></p>
+						<p><a href='/video/av1' id='s_9-11' target='_blank'>第11集</a></p>
+						<p><a href='/video/av1' id='s_9-12' target='_blank'>第12集</a></p>
+						<p><a href='/video/av1' id='s_9-13' target='_blank'>第13集</a></p>
+						<p><a href='/video/av1' id='s_9-14' target='_blank'>第14集</a></p>
+						<p><a href='/video/av1' id='s_9-15' target='_blank'>第15集</a></p>
+						<p><a href='/video/av1' id='s_9-16' target='_blank'>第16集</a></p>
+						<p><a href='/video/av1' id='s_9-17' target='_blank'>第17集</a></p>
+						<p><a href='/video/av1' id='s_9-18' target='_blank'>第18集</a></p>
+						<p><a href='/video/av1' id='s_9-19' target='_blank'>第19集</a></p>
+						<p><a href='/video/av1' id='s_9-20' target='_blank'>第20集</a></p>
+						<p><a href='/video/av1' id='s_9-22' target='_blank'>第22集</a></p>
+						<p><a href='/video/av1' id='s_9-22' target='_blank'>第22集</a></p>
+						<p><a href='/video/av1' id='s_9-23' target='_blank'>第23集</a></p>
+						<p><a href='/video/av1' id='s_9-24' target='_blank'>第24集</a></p>
+						<p><a href='/video/av1' id='s_9-25' target='_blank'>第25集</a></p>
+						<p><a href='/video/av1' id='s_9-26' target='_blank'>第26集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_10" onclick="slideUpOthers(this,'.secretVideoList');$('#s_10').slideToggle();">
+						To Love 2
+					</li>
+					<li id="s_10" class="secretVideoList">
+						<p><a href='/video/av1' id='s_10-1' target='_blank'>第1集</a></p>
+						<p><a href='/video/av1' id='s_10-2' target='_blank'>第2集</a></p>
+						<p><a href='/video/av1' id='s_10-3' target='_blank'>第3集</a></p>
+						<p><a href='/video/av1' id='s_10-4' target='_blank'>第4集</a></p>
+						<p><a href='/video/av1' id='s_10-5' target='_blank'>第5集</a></p>
+						<p><a href='/video/av1' id='s_10-6' target='_blank'>第6集</a></p>
+						<p><a href='/video/av1' id='s_10-7' target='_blank'>第7集</a></p>
+						<p><a href='/video/av1' id='s_10-8' target='_blank'>第8集</a></p>
+						<p><a href='/video/av1' id='s_10-9' target='_blank'>第9集</a></p>
+						<p><a href='/video/av1' id='s_10-10' target='_blank'>第10集</a></p>
+						<p><a href='/video/av1' id='s_10-11' target='_blank'>第11集</a></p>
+						<p><a href='/video/av1' id='s_10-12' target='_blank'>第12集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_11" onclick="slideUpOthers(this,'.secretVideoList');$('#s_11').slideToggle();">
+						To Love 3
+					</li>
+					<li id="s_11" class="secretVideoList">
+						<p><a href='/video/av1' id='s_11-1' target='_blank'>第1集</a></p>
+						<p><a href='/video/av1' id='s_11-2' target='_blank'>第2集</a></p>
+						<p><a href='/video/av1' id='s_11-3' target='_blank'>第3集</a></p>
+						<p><a href='/video/av1' id='s_11-4' target='_blank'>第4集</a></p>
+						<p><a href='/video/av1' id='s_11-5' target='_blank'>第5集</a></p>
+						<p><a href='/video/av1' id='s_11-6' target='_blank'>第6集</a></p>
+						<p><a href='/video/av1' id='s_11-7' target='_blank'>第7集</a></p>
+						<p><a href='/video/av1' id='s_11-8' target='_blank'>第8集</a></p>
+						<p><a href='/video/av1' id='s_11-9' target='_blank'>第9集</a></p>
+						<p><a href='/video/av1' id='s_11-10' target='_blank'>第10集</a></p>
+						<p><a href='/video/av1' id='s_11-11' target='_blank'>第11集</a></p>
+						<p><a href='/video/av1' id='s_11-12' target='_blank'>第12集</a></p>
+						<p><a href='/video/av1' id='s_11-13' target='_blank'>OAD1</a></p>
+						<p><a href='/video/av1' id='s_11-14' target='_blank'>OAD2</a></p>
+					</li>
+					<li class="secretVideosController" next="s_12" onclick="slideUpOthers(this,'.secretVideoList');$('#s_12').slideToggle();">
+						To Love OVA 已解禁
+					</li>
+					<li id="s_12" class="secretVideoList">
+						<p><a href='/video/av1' id='s_12-1' target='_blank'>第1集</a></p>
+						<p><a href='/video/av1' id='s_12-2' target='_blank'>第2集</a></p>
+						<p><a href='/video/av1' id='s_12-3' target='_blank'>第3集</a></p>
+						<p><a href='/video/av1' id='s_12-4' target='_blank'>第4集</a></p>
+						<p><a href='/video/av1' id='s_12-5' target='_blank'>第5集</a></p>
+						<p><a href='/video/av1' id='s_12-6' target='_blank'>第6集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_13" onclick="slideUpOthers(this,'.secretVideoList');$('#s_13').slideToggle();">
+						魔法少女小圆
+					</li>
+					<li id="s_13" class="secretVideoList">
+						<p><a href='/video/av1' id='s_13-2' target='_blank' linkCid="970367" t="d_1-00" r="00" linkAid="0">前篇 - 开始的物语</a></p>
+						<p><a href='/video/av1' id='s_13-3' target='_blank' linkCid="646912" t="d_1-50" r="00" linkAid="0">后篇 - 永远的物语</a></p>
+						<p><a href='/video/av1' id='s_13-1' target='_blank' linkCid="1152440" t="d_1-30" r="00" linkAid="1034234">新篇 - 叛逆的物语</a></p>
+					</li>
+					<li class="secretVideosController" next="s_14" onclick="slideUpOthers(this,'.secretVideoList');$('#s_14').slideToggle();">
+						女皇之刃1+2
+					</li>
+					<li id="s_14" class="secretVideoList">
+						<p><a href='/video/av1' id='s_14-1' target='_blank' linkAid="159750">第一季 第1集</a></p>
+						<p><a href='/video/av1' id='s_14-2' target='_blank' linkAid="159750">第一季 第2集</a></p>
+						<p><a href='/video/av1' id='s_14-3' target='_blank' linkAid="159750">第一季 第3集</a></p>
+						<p><a href='/video/av1' id='s_14-4' target='_blank' linkAid="159750">第一季 第4集</a></p>
+						<p><a href='/video/av1' id='s_14-5' target='_blank' linkAid="159750">第一季 第5集</a></p>
+						<p><a href='/video/av1' id='s_14-6' target='_blank' linkAid="159750">第一季 第6集</a></p>
+						<p><a href='/video/av1' id='s_14-7' target='_blank' linkAid="159750">第一季 第7集</a></p>
+						<p><a href='/video/av1' id='s_14-8' target='_blank' linkAid="159750">第一季 第8集</a></p>
+						<p><a href='/video/av1' id='s_14-9' target='_blank' linkAid="159750">第一季 第9集</a></p>
+						<p><a href='/video/av1' id='s_14-10' target='_blank' linkAid="159750">第一季 第10集</a></p>
+						<p><a href='/video/av1' id='s_14-11' target='_blank' linkAid="159750">第一季 第11集</a></p>
+						<p><a href='/video/av1' id='s_14-12' target='_blank' linkAid="159750">第一季 第12集</a></p>
+						<p><a href='/video/av1' id='s_14-13' target='_blank' linkAid="159750">第二季 第1集</a></p>
+						<p><a href='/video/av1' id='s_14-14' target='_blank' linkAid="159750">第二季 第2集</a></p>
+						<p><a href='/video/av1' id='s_14-15' target='_blank' linkAid="159750">第二季 第3集</a></p>
+						<p><a href='/video/av1' id='s_14-16' target='_blank' linkAid="159750">第二季 第4集</a></p>
+						<p><a href='/video/av1' id='s_14-17' target='_blank' linkAid="159750">第二季 第5集</a></p>
+						<p><a href='/video/av1' id='s_14-18' target='_blank' linkAid="159750">第二季 第6集</a></p>
+						<p><a href='/video/av1' id='s_14-19' target='_blank' linkAid="159750">第二季 第7集</a></p>
+						<p><a href='/video/av1' id='s_14-20' target='_blank' linkAid="159750">第二季 第8集</a></p>
+						<p><a href='/video/av1' id='s_14-21' target='_blank' linkAid="159750">第二季 第9集</a></p>
+						<p><a href='/video/av1' id='s_14-22' target='_blank' linkAid="159750">第二季 第10集</a></p>
+						<p><a href='/video/av1' id='s_14-23' target='_blank' linkAid="159750">第二季 第11集</a></p>
+						<p><a href='/video/av1' id='s_14-24' target='_blank' linkAid="159750">第二季 第12集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_15" onclick="slideUpOthers(this,'.secretVideoList');$('#s_15').slideToggle();">
+						圣痕炼金士1【BDRip】
+					</li>
+					<li id="s_15" class="secretVideoList">
+						<p><a href='/video/av1' id='s_15-1' target='_blank' linkAid="510447">第1集</a></p>
+						<p><a href='/video/av1' id='s_15-2' target='_blank' linkAid="510447">第2集</a></p>
+						<p><a href='/video/av1' id='s_15-3' target='_blank' linkAid="510447">第3集</a></p>
+						<p><a href='/video/av1' id='s_15-4' target='_blank' linkAid="510447">第4集</a></p>
+						<p><a href='/video/av1' id='s_15-5' target='_blank' linkAid="510447">第5集</a></p>
+						<p><a href='/video/av1' id='s_15-6' target='_blank' linkAid="510447">第6集</a></p>
+						<p><a href='/video/av1' id='s_15-7' target='_blank' linkAid="510447">第7集</a></p>
+						<p><a href='/video/av1' id='s_15-8' target='_blank' linkAid="510447">第8集</a></p>
+						<p><a href='/video/av1' id='s_15-9' target='_blank' linkAid="510447">第9集</a></p>
+						<p><a href='/video/av1' id='s_15-10' target='_blank' linkAid="510447">第10集</a></p>
+						<p><a href='/video/av1' id='s_15-11' target='_blank' linkAid="510447">第11集</a></p>
+						<p><a href='/video/av1' id='s_15-12' target='_blank' linkAid="510447">第12集</a></p>
+						<p><a href='/video/av1' id='s_15-13' target='_blank' linkAid="510447">第13集</a></p>
+						<p><a href='/video/av1' id='s_15-14' target='_blank' linkAid="510447">第14集</a></p>
+						<p><a href='/video/av1' id='s_15-15' target='_blank' linkAid="510447">第15集</a></p>
+						<p><a href='/video/av1' id='s_15-16' target='_blank' linkAid="510447">第16集</a></p>
+						<p><a href='/video/av1' id='s_15-17' target='_blank' linkAid="510447">第17集</a></p>
+						<p><a href='/video/av1' id='s_15-18' target='_blank' linkAid="510447">第18集</a></p>
+						<p><a href='/video/av1' id='s_15-19' target='_blank' linkAid="510447">第19集</a></p>
+						<p><a href='/video/av1' id='s_15-20' target='_blank' linkAid="510447">第20集</a></p>
+						<p><a href='/video/av1' id='s_15-21' target='_blank' linkAid="510447">第21集</a></p>
+						<p><a href='/video/av1' id='s_15-22' target='_blank' linkAid="510447">第22集</a></p>
+						<p><a href='/video/av1' id='s_15-23' target='_blank' linkAid="510447">第23集</a></p>
+						<p><a href='/video/av1' id='s_15-24' target='_blank' linkAid="510447">第24集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_16" onclick="slideUpOthers(this,'.secretVideoList');$('#s_16').slideToggle();">
+						圣痕炼金士2【BDRip】
+					</li>
+					<li id="s_16" class="secretVideoList">
+						<p><a href='/video/av1' id='s_16-1' target='_blank' linkAid="530941">第1集</a></p>
+						<p><a href='/video/av1' id='s_16-2' target='_blank' linkAid="530941">第2集</a></p>
+						<p><a href='/video/av1' id='s_16-3' target='_blank' linkAid="530941">第3集</a></p>
+						<p><a href='/video/av1' id='s_16-4' target='_blank' linkAid="530941">第4集</a></p>
+						<p><a href='/video/av1' id='s_16-5' target='_blank' linkAid="530941">第5集</a></p>
+						<p><a href='/video/av1' id='s_16-6' target='_blank' linkAid="530941">第6集</a></p>
+						<p><a href='/video/av1' id='s_16-7' target='_blank' linkAid="530941">第7集</a></p>
+						<p><a href='/video/av1' id='s_16-8' target='_blank' linkAid="530941">第8集</a></p>
+						<p><a href='/video/av1' id='s_16-9' target='_blank' linkAid="530941">第9集</a></p>
+						<p><a href='/video/av1' id='s_16-10' target='_blank' linkAid="530941">第10集</a></p>
+						<p><a href='/video/av1' id='s_16-11' target='_blank' linkAid="530941">第11集</a></p>
+						<p><a href='/video/av1' id='s_16-12' target='_blank' linkAid="530941">第12集</a></p>
+					</li>
+					<li class="secretVideosController" next="s_17" onclick="slideUpOthers(this,'.secretVideoList');$('#s_17').slideToggle();">
+						亲吻姐姐+OAD【BDRip】已解禁
+					</li>
+					<li id="s_17" class="secretVideoList">
+						<p><a href='/video/av1' id='s_17-1' target='_blank' linkAid="112117">第1集</a></p>
+						<p><a href='/video/av1' id='s_17-2' target='_blank' linkAid="112117">第2集</a></p>
+						<p><a href='/video/av1' id='s_17-3' target='_blank' linkAid="112117">第3集</a></p>
+						<p><a href='/video/av1' id='s_17-4' target='_blank' linkAid="112117">第4集</a></p>
+						<p><a href='/video/av1' id='s_17-5' target='_blank' linkAid="112117">第5集</a></p>
+						<p><a href='/video/av1' id='s_17-6' target='_blank' linkAid="112117">第6集</a></p>
+						<p><a href='/video/av1' id='s_17-7' target='_blank' linkAid="112117">第7集</a></p>
+						<p><a href='/video/av1' id='s_17-8' target='_blank' linkAid="112117">第8集</a></p>
+						<p><a href='/video/av1' id='s_17-9' target='_blank' linkAid="112117">第9集</a></p>
+						<p><a href='/video/av1' id='s_17-10' target='_blank' linkAid="112117">第10集</a></p>
+						<p><a href='/video/av1' id='s_17-11' target='_blank' linkAid="112117">第11集</a></p>
+						<p><a href='/video/av1' id='s_17-12' target='_blank' linkAid="112117">第12集</a></p>
+						<p><a href='/video/av1' id='s_17-13' target='_blank' linkAid="112117">OAD0</a></p>
+						<p><a href='/video/av1' id='s_17-14' target='_blank' linkAid="112117">OAD1</a></p>
+						<p><a href='/video/av1' id='s_17-15' target='_blank' linkAid="112117">OAD2</a></p>
+						<p><a href='/video/av1' id='s_17-16' target='_blank' linkAid="112117">OAD3-1</a></p>
+						<p><a href='/video/av1' id='s_17-17' target='_blank' linkAid="112117">OAD3-2</a></p>
+						<p><a href='/video/av1' id='s_17-18' target='_blank' linkAid="112117">OAD4-1</a></p>
+						<p><a href='/video/av1' id='s_17-19' target='_blank' linkAid="112117">OAD4-2</a></p>
+						<p><a href='/video/av1' id='s_17-20' target='_blank' linkAid="112117">OAD5</a></p>
+					</li>
+				</ul>
+			</span>
+			<li style="color:blue;cursor:default;" id="fireawayandyou" onmouseover="">
+				<b style="color:red;">
+					<!-- 6.02版支持分P看了 嗯……就是这样 -->
+					<!-- <a href="#" onclick="toggleById('extra');">点@高速真空菜粉酱</a>
+					<a href="http://tieba.baidu.com/f?ct=335675392&tn=baiduPostBrowser&sc=46456469012&z=2381425050#46456469012" target="_blank">按照这里办事哦</a>
+					 -->
+				</b>
+			</li>
+			<li id="func_button">
+				<b>
+					<a style="color:black;letter-spacing:-1px;" href="#" onclick="$('#firelist li').css('display','none');$('#settings').fadeIn();$('#settings li').fadeIn();">功能设置</a>
+				</b>
+				<b>
+					<!-- <a style="color:black;letter-spacing:-1px;" href="#" next="moreScripts" onclick="slideUpOthers(this,'.letv');$('#moreScripts').slideToggle();">脚本推荐</a> -->
+					<a id='BFP_info' href="http://bilifixer.nmzh.net/?index=1" style="color:orange;" target="_blank">我的主页</a>
+				</b>
+				<b>
+					<a id='BFP_SecretGarden' href="#" style="color:red;" onclick="$('#firelist li').css('display','none');$('#secretGarden').fadeIn();$('.secretVideosController').fadeIn();setSGStatus()">SG</a>
+				</b>
+			</li>
+			<li id="moreScripts" style="display:none;">
+				<p><a href="http://userscripts.org/scripts/show/401286" target="_blank">脚本推荐: 快速翻页全网版</a>
+				</p>
+				<p><a href="http://userscripts.org/scripts/show/412649" target="_blank">脚本推荐: 贴吧消息提示器</a>
+				</p>
+				<p><a href="http://userscripts.org/scripts/show/418432" target="_blank">脚本推荐: 贴吧图片缩放器</a>
+				</p>
+			</li>
+			<li id="ad_button">
+					<p style="color:blue;">爱:随便你怎么看+海外IP</p><!-- <a href="http://bilifixer.nmzh.net/?index=1#boost_iqiyi" target="_blank">国内党翻墙后怎样提速</a></span> -->
+					<p style="color:green;">乐:随便你怎么看+国内IP</p>
+			</li>
+			<li>
+				<b style="color:red"><a href="https://raw.githubusercontent.com/hejiheji001/StaticFilesForBFP/master/bilifixer.user.js">长期有效的升级地址</b>
+			</li>
+			<br>
+			<li id="ad_button">
+				<b>
+					<a href="http://bilifixer.nmzh.net/?index=1#bookmark" target="_blank">搜狗/360安全请用书签版</a>
+					<br>上边是说明书下边是本体<br>
+					<a href="javascript:(function(){x=document.createElement('script');x.src='https://raw.githubusercontent.com/hejiheji001/StaticFilesForBFP/master/bilifixer.user.js';document.body.appendChild(x);})();" id="bookmarkLink" >
+						Bilibili Fixer
+					</a>
+					<!-- style="background: url('http://bilifixer.nmzh.net/images/bookmarkLink.png') scroll rgba(0, 0, 0, 0) 0px 0px no-repeat no-repeat;width: 187px; height: 31px;position: absolute; left: 0px;" -->
+				</b>
+			</li>
+			<br>
+<!-- 			<li>
+				<span>
+					跟大家说个事情 刚才
+				</span>
+			</li> -->
+			<li>
+				<a style="color:black;" href="http://ask.fm/FireAwayH" target="_blank">无线鼠标各种不灵敏 有办法破么QAQ</a>
+			</li>
+			<li>
+				<b>
+					<a style="color:blue;" href="#" onclick="thanks(this);$('#donate').fadeToggle();" >捐助BFP～Donate～</a>
+					<img id="donate" onclick="$('#donate').fadeToggle();" src="http://bilifixer.nmzh.net/images/donate.png" >
+				</b>
+			</li>
+			<li>
+				<b>
+					<a style="color:black;letter-spacing:-1px;" href="#" onclick="$('#firelist li').css('display','none');$('#greetings').fadeIn();">Greetings to foreign users</a>
+				</b>
+			</li>
+			<li id="ad_button">
+				<button id="openAd" onclick="openAd();">
+					一键点广告Auto Ad Clicker
+				</button>
+			</li>
+			<li style="color:red;cursor:pointer;">
+				<a href="http://tieba.baidu.com/p/2381425050" target="_blank">反馈建议Feedback<br>(Register Required)</a>
+			</li>
+			<li style="color:rgb(72, 231, 72);cursor:pointer;" class="letvController" next="f_letv201407" onclick="slideUpOthers(this,'.letv');$('#f_letv201407').slideToggle();">
+				乐视Letv2014.07←
+			</li>
+			<li id="f_letv201407" class="letv" style="display:none;">
+				<p><a href="#" onclick="openSP('PSYCHO-PASS?x=1')">PSYCHO-PASS 新篇<br>PSYCHO-PASS</a>
+				</p>
+				<p><a href="#" onclick="openSP('恐怖残响?x=1')">恐怖残响<br>残響のテロル</a>
+				</p>
+				<p><a href="#" onclick="openSP('刀剑神域?x=1')">刀剑神域 幽灵子弹<br>ソードアート・オンライン</a>
+				</p>
+				<p><a href="#" onclick="openSP('青春之旅?x=1')">青春之旅<br>アオハライド</a>
+				</p>
+				<p><a href="#" onclick="openSP('幕末ROCK?x=1')">幕末ROCK<br>幕末ロックが</a>
+				</p>
+			</li>
+			<li style="color:rgb(72, 231, 72);cursor:pointer;" class="letvController" next="f_iqiyi201407" onclick="slideUpOthers(this,'.letv');$('#f_iqiyi201407').slideToggle();">
+				爱奇艺iQiYi2014.07←
+			</li>
+			<li id="f_iqiyi201407" class="letv" style="display:none;">
+				<p><a href="#" onclick="openSP('ALDNOAH.ZERO?x=1')">ALDNOAH.ZERO<br>アルドノア・ゼロ</a>
+				</p>
+				<p><a href="#" onclick="openSP('白银的意志 ARGEVOLLEN?x=1')">白银的意志 ARGEVOLLEN<br>白銀の意思</a>
+				</p>
+				<p><a href="#" onclick="openSP('GLASSLIP?x=1')">玻璃之唇 GLASSLIP<br>グラスリップ</a>
+				</p>
+				<p><a href="#" onclick="openSP('东京ESP?x=1')">东京ESP<br>東京ESP</a>
+				</p>
+				<p><a href="#" onclick="openSP('魔法少女☆伊莉雅#S-1017?x=1')">魔法少女☆伊莉雅 2<br>FATE/KALEID LINER</a>
+				</p>
+				<p><a href="#" onclick="openSP('SPACE☆DANDY#S-1007?x=1')">SPACE☆DANDY 2<br>スペース☆ダンディ</a>
+				</p>
+				<p><a href="#" onclick="openSP('修业魔女璐璐萌?x=1')">修业魔女璐璐萌<br>まじもじるるも</a>
+				</p>
+				<p><a href="#" onclick="openSP('LOVE STAGE!!?x=1')">LOVE STAGE!!<br>LOVE STAGE</a>
+				</p>
+				<p><a href="#" onclick="openSP('元气囝仔?x=1')">元气囝仔<br>ばらかもん</a>
+				</p>
+				<p><a href="#" onclick="openSP('普通女高中生要做当地偶像?x=1')">普通女高中生要做当地偶像<br>普通の女子校生が</a>
+				</p>
+				<p><a href="#" onclick="openSP('DRAMATICAL MURDER?x=1')">DRAMATICAL MURDER<br>DRAMATICAL MURDER</a>
+				</p>
+				<p><a href="#" onclick="openSP('斩·赤红之瞳！?x=1')">斩·赤红之瞳！<br>アカメが斬る!</a>
+				</p>
+				<p><a href="#" onclick="openSP('东京食尸鬼?x=1')">东京食尸鬼<br>トーキョーグール</a>
+				</p>
+				<p><a href="#" onclick="openSP('月刊少女野崎君?x=1')">月刊少女野崎君<br>月刊少女野崎くん</a>
+				</p>
+			</li>
+			<li style="color:fuchsia;cursor:pointer;" class="letvController" next="f_letv201404" onclick="slideUpOthers(this,'.letv');$('#f_letv201404').slideToggle();">
+				乐视Letv2014.04←
+			</li>
+			<li id="f_letv201404" class="letv" style="display:none;">
+				<p><a href="#" onclick="openSP('约会大作战?x=1')">约炮大作战2<br>デート・ア・ライブ</a>
+				</p>
+				<p><a href="#" onclick="openSP('目隐都市的演绎者?x=1')">目隐都市的演绎者<br>カゲロウプロジェクト</a>
+				</p>
+				<p><a href="#" onclick="openSP('龙娘七七七埋藏的宝藏?x=1')">龙娘七七七埋藏的宝藏<br>龍ヶ嬢七々々の埋蔵金</a>
+				</p>
+				<p><a href="#" onclick="openSP('风云维新大将军?x=1')">风云维新大将军<br>风云维新ダイ☆ショーグン</a>
+				</p>
+				<p><a href="#" onclick="openSP('乒乓?x=1')">乒乓<br>ピンポン</a>
+				</p>
+			</li>
+			<li style="color:pink;cursor:pointer;" class="letvController" next="f_letv201401" onclick="slideUpOthers(this,'.letv');$('#f_letv201401').slideToggle();">
+				乐视Letv2014.01←
+			</li>
+			<li id="f_letv201401" class="letv" style="display:none;">
+				<p><a href="#" onclick="openSP('刀剑神域?x=1')">刀剑神域<br>ソードアート・オンライン</a>
+				</p>
+				<p><a href="#" onclick="openSP('献给某飞行员的恋歌?x=1')">献给某飞行员的恋歌<br>とある飞空士への恋歌</a>
+				</p>
+				<p><a href="#" onclick="openSP('伪恋?x=1')">伪恋<br>ニセコイ</a>
+				</p>
+				<p><a href="#" onclick="openSP('银之匙 SILVER SPOON?x=1')">银之匙2<br>銀の匙2</a>
+				</p>
+				<p><a href="#" onclick="openSP('稻荷恋之歌?x=1')">稻荷恋之歌<br>いなり、こんこん、恋いろは。</a>
+				</p>
+				<p><a href="#" onclick="openSP('魔具少女 !?x=1')">魔具少女2<br>マケン姫っ！2</a>
+				</p>
+				<p><a href="#" onclick="openSP('世界征服～谋略之星～?x=1')">世界征服～谋略之星～<br>世界征服〜谋略のズヴィズダー〜</a>
+				</p>
+			</li>
+			<li style="color:orange;cursor:pointer;" class="letvController" next="f_letv201310" onclick="slideUpOthers(this,'.letv');$('#f_letv201310').slideToggle();">
+				乐视Letv2013.10←
+			</li>
+			<li id="f_letv201310" class="letv" style="display:none;">
+				<p><a href="#" onclick="openSP('当不成勇者的我，只好认真找工作了。?x=1')">打工勇者<br>勇者...就职を决意...</a>
+				</p>
+				<p><a href="#" onclick="openSP('斩服少女?x=1')">KILL la KILL <br>キルラキル</a>
+				</p>
+				<p><a href="#" onclick="openSP('少女骑士物语?x=1')">少女骑士物语<br>ワルキューレロマンツェ</a>
+				</p>
+				<p><a href="#" onclick="openSP('魔笛MAGI?x=1')">魔笛MAGI <br>マギ</a>
+				</p>
+				<p><a href="#" onclick="openSP('伽利略少女?x=1')">伽利略少女<br>ガリレイドンナ</a>
+				</p>
+				<p><a href="#" onclick="openSP('武士弗拉明戈?x=1')">武士弗拉明戈<br>サムライフラメンコ</a>
+				</p>
+				<p><a href="#" onclick="openSP('我的脑内恋碍选项?x=1')">我的脑内恋碍选项<br>俺の脳内选択肢が</a>
+				</p>
+			</li>
+			<li style="color:green;cursor:pointer;" class="letvController" next="f_letv201307" onclick="slideUpOthers(this,'.letv');$('#f_letv201307').slideToggle();">
+				乐视Letv2013.07←
+			</li>
+			<li id="f_letv201307" class="letv" style="display:none;">
+				<p><a href="#" onclick="openSP('我的妹妹不可能那么可爱?x=1')">我的妹妹不可能那么可爱<br>俺の妹がこんなに可爱いわけがない</a>
+				</p>
+				<p><a href="#" onclick="openSP('现视研?x=1')">现视研<br>げんしけん</a>
+				</p>
+				<p><a href="#" onclick="openSP('有顶天家族?x=1')">有顶天家族</a>
+				</p>
+				<p><a href="#" onclick="openSP('科学小飞侠?x=1')">科学小飞侠<br>科学忍者队ガッチャマン</a>
+				</p>
+				<p><a href="#" onclick="openSP('银之匙 SILVER SPOON?x=1')">银之匙<br>銀の匙</a>
+				</p>
+				<p><a href="#" onclick="openSP('跟班×服务?x=1')">跟班×服务<br>サーバント×サービス</a>
+				</p>
+				<p><a href="#" onclick="openSP('战姬绝唱SYMPHOGEAR?x=1')">战姬绝唱SYMPHOGEAR</a>
+				</p>
+				<p><a href="#" onclick="openSP('穿透幻影的太阳?x=1')">穿透幻影的太阳<br>幻影ヲ駆ケル太阳</a>
+				</p>
+				<p><a href="#" onclick="openSP('战勇。?x=1')">战勇。<br>戦勇。</a>
+				</p>
+				<p><a href="#" onclick="openSP('物语系列?x=1')">物语系列<br>〈物語〉シリーズ</a>
+				</p>
+			</li>
+			<li>
+				<img id='f_mail' src="http://mimg.127.net/xm/all/share/120111/img/mailme_4.png" alt="给我写信" onclick="mail2me();">
+				<wb:follow-button id="f_weibo" uid="1770836244" type="red_1">
+				</wb:follow-button>
+			</li>
+			<li id="surprise" style="display:none;">
+				<audio id="tyl2" preload="auto">
+					<!-- 					<source src="http://bilifixer.nmzh.net/BFP/tyl.mp3" type="audio/mpeg" class="fire_audio">
+					<source src="http://bilifixer.nmzh.net/BFP/tyl.ogg" type="audio/ogg" class="fire_audio"> -->
+				</audio>
+			</li>
+			<li>
+				<div class="f_count">
+					0
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div id="extra" style="display:none" class="extra pointer" onclick="window.open('http://bilifixer.nmzh.net/?index=1');">
+		爱奇艺翻墙提速方法
+	</div>
+	<div class="f_ad">
+	</div>
+</div>
+qwertqwert 11.0 qwertqwert 1.BFP11.0 Beta版本上线球测试 全新架构更稳定 目前只保证了看片功能QAQ
+qwertqwert 哦呀哦呀～作者再次悄咪咪的更新(<a href="＃" target="_blank">戳我更新</a>)啦～看看更新了啥(☆_☆)
+qwertqwert 妹控就是我～我就是…………◉‿◉
