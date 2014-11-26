@@ -892,6 +892,7 @@ label[for="isAddToBody"] {
 	text-align: left;
 	padding-left: 10px;
 	cursor: pointer;
+	white-space:nowrap;
 }
 
 .hintItem:hover{
