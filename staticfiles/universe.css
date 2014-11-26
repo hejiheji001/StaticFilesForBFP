@@ -481,9 +481,9 @@ label[for="isAddToBody"] {
 
 /*For Misaka*/
 @font-face {
-	/*font-family:'EXTRA LARGE';*/
-	/*src: url('../i-Misaka/Font/EXTRA LARGE.eot');*/
-	/*src: url('../i-Misaka/Font/EXTRA LARGE.eot?#iefix') format('embedded-opentype'), url('../i-Misaka/Font/EXTRA LARGE.woff') format('woff'), url('../i-Misaka/Font/EXTRA LARGE.ttf') format('truetype'), url('../i-Misaka/Font/EXTRA LARGE.svg#Senatus') format('svg');*/
+	font-family:'EXTRA LARGE';
+	src: url('../i-Misaka/Font/EXTRA LARGE.eot');
+	src: url('../i-Misaka/Font/EXTRA LARGE.eot?#iefix') format('embedded-opentype'), url('../i-Misaka/Font/EXTRA LARGE.woff') format('woff'), url('../i-Misaka/Font/EXTRA LARGE.ttf') format('truetype'), url('../i-Misaka/Font/EXTRA LARGE.svg#Senatus') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -881,6 +881,16 @@ label[for="isAddToBody"] {
 	width: 100%;
 }
 
+.hintItem{
+	width: inherit;
+	height: 30px;
+	background: rgba(0, 0, 0, 0.28);
+	color: white;
+	line-height: 30px;
+	font-size: 15px;
+	text-align: left;
+	padding-left: 10px;
+}
 
 
 
